@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{# This line tells Jinja to extend the base template (base.html). #}
+
+{% block title %}Coffee and Wifi{% endblock %}
+{# This block sets the title of the page to "Coffee and Wifi". The title block will replace the title block defined in the base template. #}
+
+{% block content %}
+{# This block defines the content of the page, which will be inserted into the content block defined in the base template. #}
+
+<div class="jumbotron text-center">
+  {# This div creates a Bootstrap jumbotron, which is a large, prominent section. #}
+  <div class="container">
+    {# This div creates a Bootstrap container, which provides a responsive fixed-width container. #}
+    <h1 class="display-4">☕️ Coffee & Wifi 💻</h1>
+    {# This is a heading with class "display-4", making it large and bold. It displays coffee and wifi emojis. #}
+    <p class="lead">Want to work in a cafe but need power and wifi?</p>
+    {# This is a lead paragraph, which is styled to stand out. It provides a brief description of the page's purpose. #}
+    <hr class="my-4" />
+    {# This is a horizontal rule with class "my-4", adding margin above and below it. #}
+    <p>
+      You've found the right place! Checkout my collection of cafes with data on
+      power socket availability, wifi speed and coffee quality.
+    </p>
+    {# This is a regular paragraph providing more information about the page's content. #}
+    <a
+      class="btn btn-warning btn-lg"
+      href="{{ url_for('cafes') }}"
+      role="button"
+      >Show Me!</a
+    >
+    {# This is a button with Bootstrap classes "btn btn-warning btn-lg" that links to the cafes page. The url_for function generates the URL for the cafes route. #}
+  </div>
+</div>
+
+{% endblock %}
+{# This marks the end of the content block. #}
+

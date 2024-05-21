@@ -1,0 +1,32 @@
+/* to override Bootstrap styles for some things */
+
+/* Set the background color of the body to dark gray and text color to white */
+body {
+    background-color: #333;
+    color: white;
+}
+
+/* Set the color of links to yellow */
+a {
+    color: #ffc107;
+}
+
+/* Override Bootstrap styles for jumbotron */
+.jumbotron {
+    /* Make the jumbotron a flex container with items centered */
+    display: flex;
+    align-items: center;
+    /* Remove margin and set height to 100vh (viewport height) to make the jumbotron full-screen */
+    margin: 0;
+    height: 100vh;
+    /* Set text color and background color to match body */
+    color: white;
+    background-color: #333;
+}
+
+/* Add space above elements with class "space-above" */
+.space-above {
+    margin-top: 20px;
+    padding-top: 20px;
+}
+

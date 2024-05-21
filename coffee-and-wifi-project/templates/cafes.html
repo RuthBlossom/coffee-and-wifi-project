@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{# This line tells Jinja to extend the base template (base.html). #}
+
+{% block title %}All Cafes{% endblock %}
+{# This block sets the title of the page to "All Cafes". The title block will replace the title block defined in the base template. #}
+
+{% block content %}
+{# This block defines the content of the page, which will be inserted into the content block defined in the base template. #}
+
+<div class="container">
+  {# This div creates a Bootstrap container, which provides a responsive fixed-width container. #}
+  <div class="row">
+    {# This div creates a Bootstrap row, which is a horizontal group of columns. #}
+    <div class="col-sm-12">
+      {# This div creates a Bootstrap column that spans 12 columns on all screen sizes. #}
+      <h1>All Cafes</h1>
+      {# This is a header for the page. #}
+
+      <table class="table" style="color: white">
+        {# This table displays the cafes data. The "table" class is from Bootstrap, which styles the table. The inline style sets the text color to white. #}
+        {% for row in cafes %}
+        {# This loop iterates over each row in the cafes list. #}
+        <tr>
+          {# This creates a table row. #}
+          {% for item in row %}
+          {# This nested loop iterates over each item in the current row. #}
+          {% if item[0:4] == "http" %}
+          {# This condition checks if the item starts with "http", indicating it's a URL. #}
+          <td><a href="{{ item }}">Maps Link</a></td>
+          {# If it's a URL, it creates a table cell containing a link to the URL. #}
+          {% else %}
+          <td>{{ item }}</td>
+          {# If it's not a URL, it creates a regular table cell displaying the item. #}
+          {% endif %}
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </table>
+      <p><a href="{{ url_for('home') }}">Return to index page</a></p>
+      {# This is a paragraph with a link to the home page. The url_for function generates the URL for the home route. #}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+{# This marks the end of the content block. #}
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    {# This sets the character encoding of the document to UTF-8, which supports a wide range of characters. #}
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    {# This meta tag sets the viewport to make the website responsive and ensure it displays well on different devices. The width is set to the device's width, and initial scale is set to 1. The shrink-to-fit=no value ensures that the content does not scale to fit the width of the viewport. #}
+
+    {% block styles %}
+    {# This block allows child templates to add their own styles. It will be overridden in child templates if necessary. #}
+
+    <!-- Load Bootstrap-Flask CSS here -->
+    {{ bootstrap.load_css() }}
+    {# This line uses the Bootstrap-Flask extension to load the Bootstrap CSS framework, which provides a set of styles and components for creating responsive web pages. #}
+
+    <!-- Link to the styles.css here to apply styling to all the child templates.-->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+    {# This link tag includes a custom stylesheet (styles.css) located in the static/css directory. The url_for function generates the URL for the static file. This allows you to add custom styles that will apply to all child templates. #}
+    {% endblock %}
+
+    <title>{% block title %}{% endblock %}</title>
+    {# This block defines the title of the page. It will be replaced by the title block defined in the child templates. #}
+  </head>
+  <body>
+    {% block content %}{% endblock %}
+    {# This block defines the main content of the page. It will be replaced by the content block defined in the child templates. #}
+  </body>
+</html>
+

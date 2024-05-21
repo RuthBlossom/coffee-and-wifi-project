@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{# This line tells Jinja to extend the base template (base.html). This means that add.html will inherit the structure and blocks defined in base.html. #}
+
+{% from 'bootstrap5/form.html' import render_form %}
+{# This line imports the render_form function from bootstrap5/form.html, which is a helper function to render WTForms with Bootstrap 5 styling. #}
+
+{% block title %}Add A New Cafe{% endblock %}
+{# This block sets the title of the page to "Add A New Cafe". The title block will replace the title block defined in the base template. #}
+
+{% block content %}
+{# This block defines the content of the page, which will be inserted into the content block defined in the base template. #}
+<div class="container">
+  {# This div creates a Bootstrap container, which provides a responsive fixed-width container. #}
+  <div class="row">
+    {# This div creates a Bootstrap row, which is a horizontal group of columns. #}
+    <div class="col-sm-12 col-md-8">
+      {# This div creates a Bootstrap column that spans 12 columns on small screens and 8 columns on medium and larger screens. #}
+      <h1>Add a new cafe into the database</h1>
+      {# This is a header for the page. #}
+
+      {{ render_form(form, novalidate=True) }}
+      {# This line uses the render_form function to render the form passed from the Flask view function. The novalidate=True attribute disables the HTML5 validation, so the form validation will be handled by WTForms. #}
+
+      <p class="space-above">
+        <a href="{{ url_for('cafes') }}">See all cafes</a>
+        {# This is a link to the cafes page, which shows the list of all cafes. The url_for function generates the URL for the cafes route. #}
+      </p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+{# This marks the end of the content block. #}
+
